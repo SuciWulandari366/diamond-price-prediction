@@ -1,9 +1,11 @@
 import streamlit as st
 import joblib
 import pandas as pd
+from pathlib import path
 
 # load model
-model = joblib.load("model_diamond.pkl")
+model_path = path(_file_).parent / "model_diamond.pkl"
+model = joblib.load("model_path")
 
 st.title("💎 Diamond Price Prediction")
 
@@ -59,5 +61,6 @@ if st.button("Predict Price"):
 
     # prediksi
     prediction = model.predict(df)
+
 
     st.success(f"💰 Predicted Price: ${prediction[0]:,.2f}")
